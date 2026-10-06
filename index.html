@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For Sharmistha ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffd6e7, #fff0f5, #ffe4ec);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 550px;
+            padding: 35px 25px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 2;
+        }
+
+        .heart {
+            font-size: 65px;
+            animation: beat 1s infinite;
+        }
+
+        @keyframes beat {
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        h1 {
+            color: #e91e63;
+            margin: 15px 0;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 15px 0;
+        }
+
+        button {
+            border: none;
+            padding: 13px 24px;
+            margin: 8px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            background: #ff4f81;
+            color: white;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+        }
+
+        #noBtn {
+            background: #777;
+            position: relative;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .flower {
+            position: absolute;
+            top: -50px;
+            font-size: 25px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+
+        .final {
+            font-size: 22px;
+            color: #e91e63;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div id="page1">
+            <div class="heart">❤️</div>
+
+            <h1>Hey Sharmistha...</h1>
+
+            <p>
+                তুমি কি এখনও আমার উপর রাগ করে আছো? 🥺
+            </p>
+
+            <p>
+                জানি হয়তো আমার ভুল হয়েছে...
+                কিন্তু তোমাকে রাগ করে থাকতে একদম ভালো লাগে না। ❤️
+            </p>
+
+            <button onclick="sorry()">হ্যাঁ, রাগ করে আছি 😒</button>
+            <button onclick="forgive()">না, মাফ করে দিলাম ❤️</button>
+        </div>
+
+
+        <div id="page2" class="hidden">
+
+            <div class="heart">🥺</div>
+
+            <h1>Sharmistha...</h1>
+
+            <p>
+                আচ্ছা, রাগ করো না প্লিজ। 🥺
+                <br><br>
+                আমি সত্যিই Sorry! ❤️
+                <br><br>
+                তোমার একটা হাসি আমার কাছে
+                তোমার রাগের চেয়ে অনেক বেশি সুন্দর। 🌸
+            </p>
+
+            <button onclick="forgive()">ঠিক আছে, মাফ করে দিলাম ❤️</button>
+
+        </div>
+
+
+        <div id="page3" class="hidden">
+
+            <div class="heart">💖</div>
+
+            <h1>Yaaaaay! 🎉</h1>
+
+            <p class="final">
+                Thank You, Sharmistha! ❤️
+            </p>
+
+            <p>
+                আর প্লিজ, বেশি সময় রাগ করে থেকো না। 😌
+                <br><br>
+                Stay happy & keep smiling! 🌸
+            </p>
+
+            <p>
+                — From someone who really doesn't
+                want to see you angry ❤️
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function sorry() {
+            document.getElementById("page1").classList.add("hidden");
+            document.getElementById("page2").classList.remove("hidden");
+        }
+
+        function forgive() {
+            document.getElementById("page1").classList.add("hidden");
+            document.getElementById("page2").classList.add("hidden");
+            document.getElementById("page3").classList.remove("hidden");
+
+            createFlowers();
+        }
+
+        function createFlowers() {
+
+            const flowers = ["🌸", "🌷", "💗", "❤️", "✨"];
+
+            for (let i = 0; i < 25; i++) {
+
+                let flower = document.createElement("div");
+
+                flower.className = "flower";
+
+                flower.innerHTML =
+                    flowers[Math.floor(Math.random() * flowers.length)];
+
+                flower.style.left =
+                    Math.random() * 100 + "vw";
+
+                flower.style.animationDuration =
+                    (3 + Math.random() * 5) + "s";
+
+                flower.style.animationDelay =
+                    Math.random() * 3 + "s";
+
+                document.body.appendChild(flower);
+            }
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,220 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>For Sharmistha ❤️</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ffd6e7, #fff0f5, #ffe4ec);
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 550px;
-            padding: 35px 25px;
-            background: rgba(255,255,255,0.8);
-            border-radius: 25px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            position: relative;
-            z-index: 2;
-        }
-
-        .heart {
-            font-size: 65px;
-            animation: beat 1s infinite;
-        }
-
-        @keyframes beat {
-            50% {
-                transform: scale(1.2);
-            }
-        }
-
-        h1 {
-            color: #e91e63;
-            margin: 15px 0;
-        }
-
-        p {
-            color: #555;
-            font-size: 18px;
-            line-height: 1.7;
-            margin: 15px 0;
-        }
-
-        button {
-            border: none;
-            padding: 13px 24px;
-            margin: 8px;
-            border-radius: 30px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-            background: #ff4f81;
-            color: white;
-        }
-
-        button:hover {
-            transform: scale(1.08);
-        }
-
-        #noBtn {
-            background: #777;
-            position: relative;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .flower {
-            position: absolute;
-            top: -50px;
-            font-size: 25px;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(110vh) rotate(360deg);
-            }
-        }
-
-        .final {
-            font-size: 22px;
-            color: #e91e63;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#12091e" />
+  <meta name="description" content="A magical little birthday universe for Susmita ✨" />
+  <title>For Susmita ✨ | A Birthday Universe</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div id="petals" aria-hidden="true"></div>
+  <div class="music-control"><button id="musicBtn" title="Toggle music" aria-label="Toggle music">♫ <span>Music off</span></button></div>
+  <main>
+    <section id="intro" class="panel active" aria-label="Welcome">
+      <p class="eyebrow fade-in">A LITTLE UNIVERSE MADE FOR YOU</p>
+      <div class="planet-wrap"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="planet">✦</div></div>
+      <h1 class="hero-title">Hey, <em>Susmita</em><span class="sparkle"> ✨</span></h1>
+      <p class="lead" id="introText">Someone made a little magic for your special day.</p>
+      <p class="subtle">Put on your headphones. The best part is ahead.</p>
+      <button class="primary" id="beginBtn">Step into your surprise <span>↗</span></button>
+      <p class="tiny">Made with a whole lot of care ♡</p>
+    </section>
 
-    <div class="container">
+    <section id="countdownPanel" class="panel" aria-label="Birthday countdown">
+      <div class="floating-emoji">🌙</div>
+      <p class="eyebrow">SOMETHING BEAUTIFUL IS COMING</p>
+      <h2>Every moment brings us <em>closer...</em></h2>
+      <p class="lead">To a day that's all about you.</p>
+      <div class="countdown" aria-live="polite"><div><strong id="days">00</strong><small>DAYS</small></div><div><strong id="hours">00</strong><small>HOURS</small></div><div><strong id="minutes">00</strong><small>MINUTES</small></div><div><strong id="seconds">00</strong><small>SECONDS</small></div></div>
+      <p class="subtle">23 October 2026 · Bangladesh time</p>
+      <button class="secondary" id="previewBtn">Preview the surprise now ✨</button>
+      <p class="tiny">The birthday surprise opens automatically when the day arrives.</p>
+    </section>
 
-        <div id="page1">
-            <div class="heart">❤️</div>
+    <section id="birthday" class="panel birthday-panel" aria-label="Happy birthday">
+      <p class="eyebrow">TODAY THE STARS SPELL YOUR NAME</p>
+      <div class="big-glow" aria-hidden="true">✷</div>
+      <h2 class="birthday-heading">HAPPY<br /><em>BIRTHDAY</em><br /><span>SUSMITA!</span></h2>
+      <p class="birthday-date">23 · 10 · 2026</p>
+      <p class="lead">The world got a little brighter because you're in it. 💖</p>
+      <button class="primary" id="nextWishBtn">I have something for you <span>🎁</span></button>
+    </section>
 
-            <h1>Hey Sharmistha...</h1>
+    <section id="reasons" class="panel" aria-label="Reasons to smile">
+      <p class="eyebrow">JUST A FEW LITTLE REMINDERS</p>
+      <h2>Some things you <em>deserve</em> to hear</h2>
+      <div class="reason-grid">
+        <article class="reason-card"><span>01 ✨</span><h3>You matter</h3><p>More than you probably realize, and to more people than you know.</p></article>
+        <article class="reason-card"><span>02 🌷</span><h3>Your smile matters</h3><p>May this new year bring you a thousand reasons to wear it.</p></article>
+        <article class="reason-card"><span>03 🌟</span><h3>You deserve magic</h3><p>Not just on your birthday, but on ordinary Tuesdays too.</p></article>
+      </div>
+      <button class="primary" id="letterBtn">There's a letter waiting <span>💌</span></button>
+    </section>
 
-            <p>
-                তুমি কি এখনও আমার উপর রাগ করে আছো? 🥺
-            </p>
+    <section id="letter" class="panel" aria-label="Birthday letter">
+      <p class="eyebrow">A LETTER, JUST FOR YOU</p>
+      <h2>Dear <em>Susmita,</em></h2>
+      <div class="envelope" id="envelope"><div class="envelope-flap"></div><div class="envelope-heart">♡</div></div>
+      <button class="secondary" id="openLetterBtn">Open your letter 💌</button>
+      <article class="paper hidden" id="letterPaper">
+        <div class="paper-star">✧</div>
+        <p>Dear Susmita,</p>
+        <p>Today isn't just another date on the calendar. It's a little reminder that the world is lucky to have someone like you in it.</p>
+        <p>I hope this year gives you beautiful surprises, brave new beginnings, laughter that makes your cheeks hurt, and quiet moments that feel like home.</p>
+        <p>May your dreams get bigger, your worries get smaller, and every day bring you closer to the happiness you deserve.</p>
+        <p>And when life gets a little too loud, I hope you always remember how special you are.</p>
+        <p class="signature">Happy Birthday, Susmita!<br /><span>— From your friend, with care ♡</span></p>
+      </article>
+      <button class="primary hidden" id="finalBtn">One last surprise <span>✦</span></button>
+    </section>
 
-            <p>
-                জানি হয়তো আমার ভুল হয়েছে...
-                কিন্তু তোমাকে রাগ করে থাকতে একদম ভালো লাগে না। ❤️
-            </p>
-
-            <button onclick="sorry()">হ্যাঁ, রাগ করে আছি 😒</button>
-            <button onclick="forgive()">না, মাফ করে দিলাম ❤️</button>
-        </div>
-
-
-        <div id="page2" class="hidden">
-
-            <div class="heart">🥺</div>
-
-            <h1>Sharmistha...</h1>
-
-            <p>
-                আচ্ছা, রাগ করো না প্লিজ। 🥺
-                <br><br>
-                আমি সত্যিই Sorry! ❤️
-                <br><br>
-                তোমার একটা হাসি আমার কাছে
-                তোমার রাগের চেয়ে অনেক বেশি সুন্দর। 🌸
-            </p>
-
-            <button onclick="forgive()">ঠিক আছে, মাফ করে দিলাম ❤️</button>
-
-        </div>
-
-
-        <div id="page3" class="hidden">
-
-            <div class="heart">💖</div>
-
-            <h1>Yaaaaay! 🎉</h1>
-
-            <p class="final">
-                Thank You, Sharmistha! ❤️
-            </p>
-
-            <p>
-                আর প্লিজ, বেশি সময় রাগ করে থেকো না। 😌
-                <br><br>
-                Stay happy & keep smiling! 🌸
-            </p>
-
-            <p>
-                — From someone who really doesn't
-                want to see you angry ❤️
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <script>
-
-        function sorry() {
-            document.getElementById("page1").classList.add("hidden");
-            document.getElementById("page2").classList.remove("hidden");
-        }
-
-        function forgive() {
-            document.getElementById("page1").classList.add("hidden");
-            document.getElementById("page2").classList.add("hidden");
-            document.getElementById("page3").classList.remove("hidden");
-
-            createFlowers();
-        }
-
-        function createFlowers() {
-
-            const flowers = ["🌸", "🌷", "💗", "❤️", "✨"];
-
-            for (let i = 0; i < 25; i++) {
-
-                let flower = document.createElement("div");
-
-                flower.className = "flower";
-
-                flower.innerHTML =
-                    flowers[Math.floor(Math.random() * flowers.length)];
-
-                flower.style.left =
-                    Math.random() * 100 + "vw";
-
-                flower.style.animationDuration =
-                    (3 + Math.random() * 5) + "s";
-
-                flower.style.animationDelay =
-                    Math.random() * 3 + "s";
-
-                document.body.appendChild(flower);
-            }
-        }
-
-    </script>
-
+    <section id="finale" class="panel" aria-label="Make a wish">
+      <p class="eyebrow">THIS MOMENT BELONGS TO YOU</p>
+      <h2>Close your eyes.<br /><em>Make a wish.</em></h2>
+      <div class="cake" aria-label="A birthday cake"><div class="flames"><i></i><i></i><i></i></div><div class="candles"><i></i><i></i><i></i></div><div class="icing"></div><div class="cake-body">♡ SUSMITA ♡</div><div class="plate"></div></div>
+      <p class="lead">Here's to more memories, more laughter, and a year full of wonderful things. 🥂</p>
+      <button class="primary" id="wishBtn">Make my wish ✨</button>
+      <p class="wish-result hidden" id="wishResult">Your wish is on its way to the stars. 🌠<br /><strong>Happy birthday, Susmita! 💗</strong></p>
+      <button class="secondary hidden" id="replayBtn">Experience the magic again ↻</button>
+    </section>
+  </main>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <script src="script.js"></script>
 </body>
 </html>
